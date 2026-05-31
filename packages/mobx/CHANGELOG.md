@@ -1,5 +1,17 @@
 # mobx
 
+## 6.16.0
+
+### Minor Changes
+
+-   [`6b3fb0ee725c0521bbaf7ba901a30261472a0e71`](https://github.com/mobxjs/mobx/commit/6b3fb0ee725c0521bbaf7ba901a30261472a0e71) [#4639](https://github.com/mobxjs/mobx/pull/4639) Thanks [@ashishkr96](https://github.com/ashishkr96)! - feat(mobx): make the 2022.3 `@computed` decorator lazy. `ComputedValue` is now created on first read of the decorated getter rather than eagerly during instance construction, avoiding wasted allocations for getters that are never used. On a 50k-instance × 10-getter class with one read per instance this cuts construction heap by ~50% and construction time by ~25%; the steady-state read path is unchanged. Closes #4616.
+
+### Patch Changes
+
+-   [`7eb54418b16fb9b415c04c5b8e05779790dd74ed`](https://github.com/mobxjs/mobx/commit/7eb54418b16fb9b415c04c5b8e05779790dd74ed) [#4659](https://github.com/mobxjs/mobx/pull/4659) Thanks [@kubk](https://github.com/kubk)! - Fix regression from #4639 where isComputedProp returned false for lazy @computed properties before first read
+
+-   [`c22b4b705447a4ccdce93473255f4beb170613f3`](https://github.com/mobxjs/mobx/commit/c22b4b705447a4ccdce93473255f4beb170613f3) [#4657](https://github.com/mobxjs/mobx/pull/4657) Thanks [@kubk](https://github.com/kubk)! - Add `getOrInsert` and `getOrInsertComputed` to `ObservableMap` for compatibility with ESNext `Map` typings.
+
 ## 6.15.4
 
 ### Patch Changes
